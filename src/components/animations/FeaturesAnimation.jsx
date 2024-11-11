@@ -2,338 +2,246 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const FeaturesAnimation = () => {
-  // Feature data
   const features = [
     {
-      icon: '📚',
-      title: 'Resources',
-      description: 'Comprehensive learning materials',
+      icon: '🎯',
+      title: 'Achievement System',
+      description: 'Track your progress with intelligent metrics',
       gradient: 'feature1Gradient',
       delay: 0,
     },
     {
-      icon: '🎯',
-      title: 'Practice',
-      description: 'Interactive exercises',
+      icon: '📚',
+      title: 'Smart Resources',
+      description: 'AI-curated learning materials',
       gradient: 'feature2Gradient',
       delay: 0.2,
     },
     {
-      icon: '🏆',
-      title: 'Awards',
-      description: 'Achievement system',
+      icon: '⚡',
+      title: 'Focused Practice',
+      description: 'Personalized exercises that adapt to you',
       gradient: 'feature3Gradient',
       delay: 0.4,
-    },
-    {
-      icon: '📈',
-      title: 'Progress',
-      description: 'Track your journey',
-      gradient: 'feature4Gradient',
-      delay: 0.6,
-    },
+    }
   ];
 
   return (
-    <div
-      className="relative w-96 h-96" // Adjust the size as needed
-      style={{
-        transform: 'translate(0, 0)', // Modify this to reposition the entire animation
-      }}
-    >
-      <motion.svg
-        viewBox="0 0 400 400"
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-full"
-        initial="initial"
-        animate="animate"
-      >
-        {/* Definitions */}
-        <defs>
-          {/* Central Gradient */}
-          <linearGradient id="centerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style={{ stopColor: '#faf5ff', stopOpacity: 1 }}>
-              <animate
-                attributeName="stop-color"
-                values="#faf5ff;#f3e8ff;#faf5ff"
-                dur="5s"
-                repeatCount="indefinite"
-              />
-            </stop>
-            <stop offset="100%" style={{ stopColor: '#e9d5ff', stopOpacity: 1 }}>
-              <animate
-                attributeName="stop-color"
-                values="#e9d5ff;#d8b4fe;#e9d5ff"
-                dur="5s"
-                repeatCount="indefinite"
-              />
-            </stop>
-          </linearGradient>
+    <div className="w-full bg-gray-900 min-h-[500px]">
+      <div className="max-w-7xl mx-auto px-4 py-16 flex items-center justify-between">
+        {/* Left side - Animation */}
+        <div className="w-1/2">
+          <motion.svg
+            viewBox="0 0 400 400"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-full max-w-lg"
+            initial="initial"
+            animate="animate"
+          >
+            <defs>
+              <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#a855f7" stopOpacity="0.2" />
+                <stop offset="100%" stopColor="#a855f7" stopOpacity="0" />
+              </radialGradient>
 
-          {/* Feature Gradients */}
-          <linearGradient id="feature1Gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style={{ stopColor: '#c084fc', stopOpacity: 1 }} />
-            <stop offset="100%" style={{ stopColor: '#a855f7', stopOpacity: 1 }} />
-          </linearGradient>
-          <linearGradient id="feature2Gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style={{ stopColor: '#a855f7', stopOpacity: 1 }} />
-            <stop offset="100%" style={{ stopColor: '#9333ea', stopOpacity: 1 }} />
-          </linearGradient>
-          <linearGradient id="feature3Gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style={{ stopColor: '#9333ea', stopOpacity: 1 }} />
-            <stop offset="100%" style={{ stopColor: '#7e22ce', stopOpacity: 1 }} />
-          </linearGradient>
-          <linearGradient id="feature4Gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style={{ stopColor: '#7e22ce', stopOpacity: 1 }} />
-            <stop offset="100%" style={{ stopColor: '#6b21a8', stopOpacity: 1 }} />
-          </linearGradient>
+              <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3" result="blur" />
+                <feFlood floodColor="#a855f7" floodOpacity="0.3" />
+                <feComposite in2="blur" operator="in" />
+                <feMerge>
+                  <feMergeNode />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
 
-          {/* Glow Effects */}
-          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="3" result="blur" />
-            <feFlood floodColor="#f3e8ff" floodOpacity="0.5" />
-            <feComposite in2="blur" operator="in" />
-            <feMerge>
-              <feMergeNode />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-          <filter id="strongGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="5" result="blur" />
-            <feFlood floodColor="#a855f7" floodOpacity="0.5" />
-            <feComposite in2="blur" operator="in" />
-            <feMerge>
-              <feMergeNode />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
+            {/* Background glow */}
+            <motion.circle
+              cx="200"
+              cy="200"
+              r="160"
+              fill="url(#centerGlow)"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
+            />
 
-        {/* Background Pattern */}
-        <motion.rect
-          x="0"
-          y="0"
-          width="400"
-          height="400"
-          fill="url(#centerGradient)"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.1 }}
-          transition={{ duration: 1 }}
-        />
+            {/* Center circle */}
+            <motion.circle
+              cx="200"
+              cy="200"
+              r="60"
+              fill="#a855f7"
+              filter="url(#glow)"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.5 }}
+            />
 
-        {/* Background Circles */}
-        {[170, 140, 110].map((radius, index) => (
-          <motion.circle
-            key={`circle-${index}`}
-            cx="200"
-            cy="200"
-            r={radius}
-            fill="none"
-            stroke={`hsl(280, ${90 - index * 10}%, ${90 - index * 5}%)`}
-            strokeWidth="1"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{
-              opacity: 0.3 - index * 0.1,
-              scale: 1,
-              rotate: 360,
-            }}
-            transition={{
-              duration: 3 + index,
-              repeat: Infinity,
-              repeatType: 'reverse',
-              ease: 'linear',
-            }}
-          />
-        ))}
-
-        {/* Central Hub */}
-        <motion.g filter="url(#strongGlow)">
-          <motion.circle
-            cx="200"
-            cy="200"
-            r="80"
-            fill="url(#centerGradient)"
-            stroke="#a855f7"
-            strokeWidth="4"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{
-              type: 'spring',
-              duration: 1.5,
-              bounce: 0.4,
-            }}
-          />
-          <motion.g>
             <motion.text
               x="200"
               y="190"
               textAnchor="middle"
-              fontSize="32"
-              fill="#7e22ce"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
+              fill="white"
+              fontSize="20"
+              fontWeight="bold"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              🎓
+              SMART
             </motion.text>
             <motion.text
               x="200"
-              y="220"
+              y="210"
               textAnchor="middle"
-              fontFamily="Arial"
-              fontWeight="bold"
-              fill="#6b21a8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              fill="white"
+              fontSize="16"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
             >
-              <tspan fontSize="16">SMART</tspan>
-              <tspan x="200" y="235" fontSize="14">
-                LEARNING
-              </tspan>
+              LEARNING
             </motion.text>
-          </motion.g>
-        </motion.g>
 
-        {/* Feature Orbitals */}
-        <motion.g
-          initial={{ rotate: 0 }}
-          animate={{ rotate: 360 }}
-          transition={{
-            duration: 40,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        >
-          {features.map((feature, index) => {
-            const angle = (index * 360) / features.length;
-            const x = 200 + 120 * Math.cos((angle * Math.PI) / 180);
-            const y = 200 + 120 * Math.sin((angle * Math.PI) / 180);
+            {/* Feature nodes */}
+            {features.map((feature, index) => {
+              const angle = (index * 2 * Math.PI) / features.length - Math.PI / 2;
+              const x = 200 + Math.cos(angle) * 120;
+              const y = 200 + Math.sin(angle) * 120;
 
-            return (
-              <motion.g
-                key={feature.title}
-                transform={`rotate(${-angle} ${x} ${y})`}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: feature.delay }}
-                whileHover={{ scale: 1.1 }}
-              >
-                <motion.circle
-                  cx={x}
-                  cy={y}
-                  r="45"
-                  fill={`url(#${feature.gradient})`}
-                  filter="url(#glow)"
-                  animate={{
-                    r: [45, 48, 45],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    repeatType: 'reverse',
-                  }}
-                />
-                <text
-                  x={x}
-                  y={y - 5}
-                  textAnchor="middle"
-                  fontSize="24"
-                  fill="#ffffff"
-                  style={{ pointerEvents: 'none' }}
+              return (
+                <motion.g
+                  key={feature.title}
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: feature.delay }}
                 >
-                  {feature.icon}
-                </text>
-                <text
-                  x={x}
-                  y={y + 15}
-                  textAnchor="middle"
-                  fontSize="12"
-                  fill="#ffffff"
-                  fontFamily="Arial"
-                  style={{ pointerEvents: 'none' }}
+                  {/* Connection line */}
+                  <motion.line
+                    x1="200"
+                    y1="200"
+                    x2={x}
+                    y2={y}
+                    stroke="#a855f7"
+                    strokeWidth="2"
+                    strokeDasharray="4"
+                    initial={{ pathLength: 0 }}
+                    animate={{ pathLength: 1 }}
+                    transition={{ duration: 1, delay: feature.delay }}
+                  />
+
+                  {/* Feature circle */}
+                  <motion.circle
+                    cx={x}
+                    cy={y}
+                    r="40"
+                    fill="#9333ea"
+                    filter="url(#glow)"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  />
+
+                  {/* Feature icon */}
+                  <text
+                    x={x}
+                    y={y - 5}
+                    textAnchor="middle"
+                    fill="white"
+                    fontSize="18"
+                  >
+                    {feature.icon}
+                  </text>
+
+                  {/* Feature title */}
+                  <text
+                    x={x}
+                    y={y + 15}
+                    textAnchor="middle"
+                    fill="white"
+                    fontSize="12"
+                    fontWeight="bold"
+                  >
+                    {feature.title}
+                  </text>
+                </motion.g>
+              );
+            })}
+
+            {/* Decorative dots */}
+            {[...Array(12)].map((_, i) => (
+              <motion.circle
+                key={`dot-${i}`}
+                r="2"
+                fill="#d8b4fe"
+                filter="url(#glow)"
+                initial={{
+                  cx: 200,
+                  cy: 200,
+                  opacity: 0,
+                }}
+                animate={{
+                  cx: 200 + Math.cos((i * Math.PI) / 6) * 140,
+                  cy: 200 + Math.sin((i * Math.PI) / 6) * 140,
+                  opacity: [0, 1, 0],
+                }}
+                transition={{
+                  duration: 3,
+                  delay: i * 0.2,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                }}
+              />
+            ))}
+          </motion.svg>
+        </div>
+
+        {/* Right side - Content */}
+        <div className="w-1/2 pl-12">
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-4xl font-bold text-white mb-6">
+              Intelligent Language Learning
+            </h2>
+            <p className="text-gray-300 text-lg mb-8">
+              Experience a revolutionary way to master languages with our AI-powered
+              platform. Smart learning adapts to your pace, while focused practice
+              ensures rapid progress.
+            </p>
+            <ul className="space-y-4">
+              {features.map((feature) => (
+                <motion.li
+                  key={feature.title}
+                  className="flex items-start space-x-3 text-gray-300"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: feature.delay + 0.5 }}
                 >
-                  {feature.title}
-                </text>
-
-                {/* Progress Ring */}
-                <motion.circle
-                  cx={x}
-                  cy={y}
-                  r="50"
-                  fill="none"
-                  stroke="#ffffff"
-                  strokeWidth="2"
-                  strokeDasharray="314"
-                  initial={{ strokeDashoffset: 314 }}
-                  animate={{ strokeDashoffset: 0 }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: 'linear',
-                  }}
-                  style={{ opacity: 0.3 }}
-                />
-              </motion.g>
-            );
-          })}
-        </motion.g>
-
-        {/* Connection Lines */}
-        <motion.g filter="url(#glow)">
-          <motion.circle
-            cx="200"
-            cy="200"
-            r="120"
-            fill="none"
-            stroke="#a855f7"
-            strokeWidth="1"
-            strokeDasharray="5,5"
-            initial={{ opacity: 0 }}
-            animate={{
-              opacity: 0.5,
-              strokeDashoffset: [0, 100],
-            }}
-            transition={{
-              opacity: { duration: 1 },
-              strokeDashoffset: {
-                duration: 20,
-                repeat: Infinity,
-                ease: 'linear',
-              },
-            }}
-          />
-        </motion.g>
-
-        {/* Particle Effects */}
-        {[...Array(12)].map((_, i) => (
-          <motion.circle
-            key={`particle-${i}`}
-            r="2"
-            fill={`hsl(${280 + i * 5}, 90%, 80%)`}
-            filter="url(#glow)"
-            initial={{
-              cx: 200,
-              cy: 200,
-              opacity: 0,
-            }}
-            animate={{
-              cx: 200 + 120 * Math.cos((i * 30 * Math.PI) / 180),
-              cy: 200 + 120 * Math.sin((i * 30 * Math.PI) / 180),
-              opacity: [0, 1, 0],
-            }}
-            transition={{
-              duration: 4,
-              delay: i * 0.3,
-              repeat: Infinity,
-              ease: 'linear',
-            }}
-          />
-        ))}
-      </motion.svg>
+                  <span className="text-xl mt-1">{feature.icon}</span>
+                  <div>
+                    <h3 className="text-white font-semibold mb-1">
+                      {feature.title}
+                    </h3>
+                    <p className="text-sm">{feature.description}</p>
+                  </div>
+                </motion.li>
+              ))}
+            </ul>
+            <motion.button
+              className="mt-8 bg-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-700 transition-colors"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Start Learning Now →
+            </motion.button>
+          </motion.div>
+        </div>
+      </div>
     </div>
   );
 };
 
 export default FeaturesAnimation;
-
