@@ -4,7 +4,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class', // Enable dark mode with class strategy
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
@@ -13,6 +13,7 @@ export default {
       },
       colors: {
         primary: {
+          DEFAULT: '#8b5cf6',
           50: '#faf5ff',
           100: '#f3e8ff',
           200: '#e9d5ff',
@@ -23,24 +24,56 @@ export default {
           700: '#7e22ce',
           800: '#6b21a8',
           900: '#581c87',
+          light: '#faf5ff',
+          dark: '#4c1d95'
+        },
+        background: {
+          DEFAULT: '#faf5ff',
+          light: '#faf5ff',
+          dark: '#16063a'
+        },
+        text: {
+          DEFAULT: '#4c1d95',
+          light: '#4c1d95',
+          dark: '#e2daff'
+        },
+        secondary: {
+          DEFAULT: '#e9d5ff',
+          50: '#faf5ff',
+          100: '#f3e8ff',
+          200: '#e9d5ff',
+          300: '#d8b4fe',
+          400: '#c084fc',
+          500: '#a855f7',
+          600: '#9333ea',
+          700: '#7e22ce',
+          800: '#6b21a8',
+          900: '#581c87',
+          light: '#e9d5ff',
+          dark: '#2d1b69'
+        },
+        accent: {
+          DEFAULT: '#a855f7',
+          light: '#a855f7',
+          dark: '#8e2de2'
         },
         dark: {
           bg: {
-            primary: '#121212',
-            secondary: '#1e1e1e',
+            primary: '#16063a',
+            secondary: '#2d1b69',
             tertiary: '#2d2d2d',
           },
           text: {
-            primary: '#ffffff',
+            primary: '#e2daff',
             secondary: '#a0a0a0',
             tertiary: '#6b7280',
           },
           border: {
-            primary: '#2d2d2d',
+            primary: '#2d1b69',
             secondary: '#404040',
           },
           accent: {
-            purple: '#9d4edd',
+            purple: '#b983ff',
             blue: '#60a5fa',
             green: '#34d399',
             yellow: '#fbbf24',
@@ -48,12 +81,12 @@ export default {
         },
         light: {
           bg: {
-            primary: '#ffffff',
-            secondary: '#f3f4f6',
+            primary: '#faf5ff',
+            secondary: '#e9d5ff',
             tertiary: '#e5e7eb',
           },
           text: {
-            primary: '#111827',
+            primary: '#4c1d95',
             secondary: '#4b5563',
             tertiary: '#6b7280',
           },
@@ -171,7 +204,5 @@ export default {
       scale: ['hover', 'active'],
     },
   },
-  plugins: [
-    // Add any plugins you want to use
-  ],
+  plugins: [],
 }
